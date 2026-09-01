@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TrotskyBuilds — Full-Stack Web Experiences</title>
 
-    <!-- Google Fonts (Inter) for a modern, clean look -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
 
-    <!-- Open Graph Meta Tags (makes link previews look great) -->
     <meta property="og:title" content="TrotskyBuilds — Sites That Slap" />
     <meta property="og:description" content="Full-stack web experiences that don't just look good — they work hard." />
     <meta property="og:image" content="https://github.com/Froshboi/letsbuildyou/blob/main/preview.png?raw=true" />
@@ -181,7 +179,7 @@
             transform: scale(1.02);
         }
 
-        /* ---------- Theme Toggle Button ---------- */
+        /* ---------- Theme Toggle ---------- */
         .theme-toggle {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -216,7 +214,6 @@
             background-color: rgba(var(--bg-primary-rgb, 255, 255, 255), 0.8);
         }
 
-        /* We need to handle RGB for backdrop. Let's use a fallback or just solid. */
         .navbar-inner {
             display: flex;
             justify-content: space-between;
@@ -330,9 +327,9 @@
             font-size: 0.95rem;
         }
 
-        /* ---------- Cards (Services, Portfolio) ---------- */
+        /* ---------- Cards ---------- */
         .service-card,
-        .portfolio-card {
+        .repo-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 1rem;
@@ -343,7 +340,7 @@
         }
 
         .service-card:hover,
-        .portfolio-card:hover {
+        .repo-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
             border-color: var(--accent);
@@ -365,21 +362,7 @@
             font-size: 0.95rem;
         }
 
-        .portfolio-card .image-placeholder {
-            width: 100%;
-            height: 180px;
-            border-radius: 0.75rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 2rem;
-            color: white;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-        }
-
-        .portfolio-card .tag {
+        .repo-card .lang-tag {
             display: inline-block;
             font-size: 0.7rem;
             font-weight: 600;
@@ -389,26 +372,109 @@
             background: var(--accent-glow);
             padding: 0.15rem 0.75rem;
             border-radius: 9999px;
-            margin-bottom: 0.5rem;
+            margin: 0.5rem 0;
         }
 
-        .portfolio-card h4 {
+        .repo-card .stars {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .repo-card h4 {
             font-weight: 700;
             font-size: 1.1rem;
+            margin-top: 0.25rem;
         }
-        .portfolio-card p {
+        .repo-card p {
             color: var(--text-secondary);
             font-size: 0.9rem;
             margin: 0.25rem 0 0.75rem 0;
         }
 
-        .portfolio-card .link {
+        .repo-card .link {
             font-weight: 600;
             color: var(--accent);
             font-size: 0.9rem;
         }
-        .portfolio-card .link:hover {
+        .repo-card .link:hover {
             text-decoration: underline;
+        }
+
+        /* ---------- Job Calculator ---------- */
+        .calculator-section {
+            background: var(--bg-secondary);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            border: 1px solid var(--border-color);
+            margin: 2rem 0;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .calc-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--text-primary);
+        }
+
+        .calc-form input,
+        .calc-form select {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            transition: border 0.2s ease;
+        }
+
+        .calc-form input:focus,
+        .calc-form select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .calc-result {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .calc-result .price-breakdown {
+            margin: 1.5rem 0;
+        }
+
+        .calc-result .price-breakdown div {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .calc-result .total {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 1rem;
+        }
+
+        .calc-result .total-label {
+            font-weight: 600;
+            color: var(--text-secondary);
         }
 
         /* ---------- Process ---------- */
@@ -444,70 +510,6 @@
         .process-step p {
             color: var(--text-secondary);
             font-size: 0.95rem;
-        }
-
-        /* ---------- Pricing ---------- */
-        .pricing-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 1.5rem;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.25s ease;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent);
-        }
-
-        .pricing-card.popular {
-            border-color: var(--accent);
-            background: var(--bg-secondary);
-        }
-
-        .pricing-card .popular-badge {
-            position: absolute;
-            top: -0.75rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: white;
-            font-weight: 700;
-            font-size: 0.7rem;
-            padding: 0.2rem 1rem;
-            border-radius: 9999px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .pricing-card .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0.5rem 0;
-        }
-        .pricing-card .price small {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-muted);
-        }
-        .pricing-card ul {
-            list-style: none;
-            margin: 1.5rem 0;
-            text-align: left;
-        }
-        .pricing-card ul li {
-            padding: 0.3rem 0;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        .pricing-card ul li::before {
-            content: "✓ ";
-            color: var(--accent);
-            font-weight: 700;
         }
 
         /* ---------- CTA / Footer ---------- */
@@ -571,6 +573,11 @@
                 gap: 1.5rem;
             }
 
+            .calculator-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
             .cta-section {
                 padding: 2rem 1rem;
             }
@@ -580,7 +587,7 @@
             }
         }
 
-        /* ---------- Scroll Animation Helper ---------- */
+        /* ---------- Animations ---------- */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -606,6 +613,28 @@
         .delay-4 {
             animation-delay: 0.4s;
         }
+
+        .loading-spinner {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-muted);
+        }
+
+        .loading-spinner .spinner {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -618,8 +647,8 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#work">Work</a></li>
+                <li><a href="#calculator">Calculator</a></li>
                 <li><a href="#process">Process</a></li>
-                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact" class="btn-primary" style="padding:0.5rem 1.5rem; font-size:0.85rem;">Book a Call</a></li>
             </ul>
 
@@ -644,7 +673,7 @@
             </h1>
             <p>
                 Full-stack web experiences that don't just look good — they work hard.
-                From AI automation to pixel-perfect design, we deliver results.
+                From custom development to pixel-perfect design, we deliver results.
             </p>
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary">Book a Free Call ↗</a>
@@ -699,9 +728,9 @@
                     <p>Bubble, Webflow, and Zapier — we ship MVPs faster than you can say "funding".</p>
                 </div>
                 <div class="service-card fade-up delay-3">
-                    <span class="icon">🤖</span>
-                    <h3>AI & Automation</h3>
-                    <p>Custom AI agents, chatbots, and internal automations that save you hundreds of hours.</p>
+                    <span class="icon">📊</span>
+                    <h3>Data & Analytics</h3>
+                    <p>Dashboards, reporting, and data pipelines that turn raw numbers into actionable insights.</p>
                 </div>
                 <div class="service-card fade-up delay-1">
                     <span class="icon">🏷️</span>
@@ -716,62 +745,70 @@
             </div>
         </section>
 
-        <!-- ========== PORTFOLIO (WORK) ========== -->
+        <!-- ========== PORTFOLIO (GitHub Repos) ========== -->
         <section id="work" class="container section-padding" style="padding-top:0;">
             <div style="text-align:center; margin-bottom:3rem;">
                 <span class="badge">Portfolio</span>
-                <h2 class="section-title">Projects We're Proud Of</h2>
-                <p class="section-subtitle" style="margin:0 auto;">Each one built with obsession over quality and detail.</p>
+                <h2 class="section-title">Projects I've Built</h2>
+                <p class="section-subtitle" style="margin:0 auto;">Live projects pulled straight from my GitHub.</p>
             </div>
 
-            <div class="grid-3">
-                <!-- Pixel OS -->
-                <div class="portfolio-card fade-up">
-                    <div class="image-placeholder" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">🖥️</div>
-                    <span class="tag">Web App</span>
-                    <h4>Pixel OS</h4>
-                    <p>A pixel-perfect OS interface built in the browser with seamless animations.</p>
-                    <a href="#" class="link">Live Demo ↗</a>
+            <div id="repoGrid" class="grid-3">
+                <!-- Loading state -->
+                <div class="loading-spinner" style="grid-column:1/-1;">
+                    <div class="spinner"></div>
+                    <p style="margin-top:1rem;">Loading projects...</p>
                 </div>
-                <!-- Pollwave -->
-                <div class="portfolio-card fade-up delay-1">
-                    <div class="image-placeholder" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">📊</div>
-                    <span class="tag">SaaS</span>
-                    <h4>Pollwave</h4>
-                    <p>Real-time polling and audience engagement platform used by 100+ enterprises.</p>
-                    <a href="#" class="link">Live Demo ↗</a>
-                </div>
-                <!-- OmniAI -->
-                <div class="portfolio-card fade-up delay-2">
-                    <div class="image-placeholder" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">🧠</div>
-                    <span class="tag">AI Tool</span>
-                    <h4>OmniAI</h4>
-                    <p>Generative AI dashboard that centralizes prompts, models, and outputs.</p>
-                    <a href="#" class="link">Live Demo ↗</a>
-                </div>
-                <!-- Broccolio -->
-                <div class="portfolio-card fade-up delay-3">
-                    <div class="image-placeholder" style="background: linear-gradient(135deg, #22c55e, #16a34a);">🥦</div>
-                    <span class="tag">E-Commerce</span>
-                    <h4>Broccolio</h4>
-                    <p>Farm-to-table delivery platform with real-time inventory and routing.</p>
-                    <a href="#" class="link">Live Demo ↗</a>
-                </div>
-                <!-- AuraPOS -->
-                <div class="portfolio-card fade-up delay-1">
-                    <div class="image-placeholder" style="background: linear-gradient(135deg, #f59e0b, #d97706);">💳</div>
-                    <span class="tag">Fintech</span>
-                    <h4>AuraPOS</h4>
-                    <p>Cloud-based point of sale with offline sync and advanced analytics.</p>
-                    <a href="#" class="link">Live Demo ↗</a>
-                </div>
-                <!-- SwiftRFP -->
-                <div class="portfolio-card fade-up delay-2">
-                    <div class="image-placeholder" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">📄</div>
-                    <span class="tag">Automation</span>
-                    <h4>SwiftRFP</h4>
-                    <p>AI-driven RFP response generator that cuts proposal time by 70%.</p>
-                    <a href="#" class="link">Live Demo ↗</a>
+            </div>
+        </section>
+
+        <!-- ========== JOB CALCULATOR ========== -->
+        <section id="calculator" class="container section-padding" style="padding-top:0;">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <span class="badge">💰 Estimate</span>
+                <h2 class="section-title">Job Calculator</h2>
+                <p class="section-subtitle" style="margin:0 auto;">Get a ballpark estimate for your next project.</p>
+            </div>
+
+            <div class="calculator-section">
+                <div class="calculator-grid">
+                    <div class="calc-form">
+                        <label for="projectType">Project Type</label>
+                        <select id="projectType">
+                            <option value="landing">Landing Page — $1,500</option>
+                            <option value="webapp" selected>Web App — $3,500</option>
+                            <option value="ecommerce">E-Commerce — $5,000</option>
+                            <option value="platform">Complex Platform — $7,500+</option>
+                        </select>
+
+                        <label for="hours">Estimated Hours</label>
+                        <input type="number" id="hours" value="80" min="10" step="5" />
+
+                        <label for="hourlyRate">Your Hourly Rate ($)</label>
+                        <input type="number" id="hourlyRate" value="85" min="25" step="5" />
+
+                        <button class="btn-primary" id="calcBtn" style="width:100%; margin-top:0.5rem;">
+                            Calculate Estimate
+                        </button>
+                    </div>
+
+                    <div class="calc-result">
+                        <h3 style="font-weight:700; margin-bottom:0.5rem;">Estimate Breakdown</h3>
+                        <div class="price-breakdown">
+                            <div><span>Project Type</span> <span id="displayType">Web App</span></div>
+                            <div><span>Hours</span> <span id="displayHours">80</span></div>
+                            <div><span>Hourly Rate</span> <span>$<span id="displayRate">85</span></span></div>
+                            <div style="border-bottom:none; padding-top:0.5rem; font-weight:600;">
+                                <span>Base Estimate</span>
+                                <span id="displayBase">$6,800</span>
+                            </div>
+                        </div>
+                        <div class="total-label">Total Project Cost</div>
+                        <div class="total" id="displayTotal">$6,800</div>
+                        <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.5rem;">
+                            * This is a rough estimate. Final pricing depends on scope and requirements.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -808,62 +845,6 @@
             </div>
         </section>
 
-        <!-- ========== PRICING ========== -->
-        <section id="pricing" class="container section-padding" style="padding-top:0;">
-            <div style="text-align:center; margin-bottom:3rem;">
-                <span class="badge">Pricing</span>
-                <h2 class="section-title">Choose Your Plan</h2>
-                <p class="section-subtitle" style="margin:0 auto;">Flexible options built for startups and enterprises alike.</p>
-            </div>
-
-            <div class="grid-3">
-                <!-- Starter -->
-                <div class="pricing-card fade-up">
-                    <h3 style="font-weight:700;">Starter</h3>
-                    <div class="price">$0 <small>/ mo</small></div>
-                    <p style="color:var(--text-secondary); font-size:0.9rem;">Perfect for early-stage validation.</p>
-                    <ul>
-                        <li>Discovery & Audit</li>
-                        <li>Landing Page Design</li>
-                        <li>1 Round of Revisions</li>
-                        <li>Basic Analytics Setup</li>
-                    </ul>
-                    <a href="#contact" class="btn-secondary" style="width:100%;">Get Started</a>
-                </div>
-
-                <!-- Growth (Popular) -->
-                <div class="pricing-card popular fade-up delay-1">
-                    <span class="popular-badge">🔥 Most Popular</span>
-                    <h3 style="font-weight:700;">Growth</h3>
-                    <div class="price">$3.5k <small>/ project</small></div>
-                    <p style="color:var(--text-secondary); font-size:0.9rem;">For businesses ready to scale.</p>
-                    <ul>
-                        <li>Full-Stack Web App</li>
-                        <li>Custom UI/UX Design</li>
-                        <li>3 Rounds of Revisions</li>
-                        <li>SEO & Performance Optimization</li>
-                        <li>30-Day Support</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary" style="width:100%; text-align:center;">Book a Call</a>
-                </div>
-
-                <!-- Agency -->
-                <div class="pricing-card fade-up delay-2">
-                    <h3 style="font-weight:700;">Agency</h3>
-                    <div class="price">$7.5k <small>/ project</small></div>
-                    <p style="color:var(--text-secondary); font-size:0.9rem;">Enterprise-grade solutions.</p>
-                    <ul>
-                        <li>Complex Platform Build</li>
-                        <li>AI / Automation Integration</li>
-                        <li>Unlimited Revisions</li>
-                        <li>Advanced Security & Compliance</li>
-                        <li>90-Day Support + Training</li>
-                    </ul>
-                    <a href="#contact" class="btn-secondary" style="width:100%;">Contact Sales</a>
-                </div>
-            </div>
-        </section>
-
         <!-- ========== CTA / CONTACT ========== -->
         <section id="contact" class="container">
             <div class="cta-section fade-up">
@@ -883,7 +864,7 @@
     <footer class="container footer">
         <span>© 2026 TrotskyBuilds. Built with ☕ and 🔥.</span>
         <span>
-            <a href="#" style="margin:0 0.5rem; color:var(--text-muted);">GitHub</a>
+            <a href="https://github.com/Froshboi" target="_blank" style="margin:0 0.5rem; color:var(--text-muted);">GitHub</a>
             <a href="#" style="margin:0 0.5rem; color:var(--text-muted);">Twitter</a>
             <a href="#" style="margin:0 0.5rem; color:var(--text-muted);">LinkedIn</a>
         </span>
@@ -894,7 +875,6 @@
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
 
-        // Check for saved user preference, else fallback to system preference
         const getCurrentTheme = () => {
             const saved = localStorage.getItem('theme');
             if (saved) return saved;
@@ -914,7 +894,6 @@
 
         themeToggle.addEventListener('click', toggleTheme);
 
-        // Listen for system changes if user hasn't saved a preference
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
             if (!localStorage.getItem('theme')) {
                 const newTheme = e.matches ? 'dark' : 'light';
@@ -933,7 +912,6 @@
             mobileBtn.textContent = isOpen ? '✕' : '☰';
         });
 
-        // Close menu when a link is clicked (on mobile)
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
@@ -942,9 +920,111 @@
             });
         });
 
-        // ---------- SCROLL ANIMATIONS (Intersection Observer) ----------
-        const fadeElements = document.querySelectorAll('.fade-up');
+        // ---------- FETCH GITHUB REPOS ----------
+        async function fetchRepos() {
+            const grid = document.getElementById('repoGrid');
+            try {
+                const res = await fetch('https://api.github.com/users/Froshboi/repos?sort=updated&per_page=20');
+                if (!res.ok) throw new Error('Failed to fetch repos');
+                const repos = await res.json();
 
+                // Filter out forks (optional — we keep Circlet because it's cool)
+                const ownRepos = repos.filter(r => !r.fork || r.name === 'Circlet');
+
+                if (ownRepos.length === 0) {
+                    grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--text-muted);">No public repositories found.</p>`;
+                    return;
+                }
+
+                grid.innerHTML = ownRepos.map((repo, i) => `
+                        <div class="repo-card fade-up delay-${i % 4}">
+                            <h4>${repo.name}</h4>
+                            <p>${repo.description || 'No description provided.'}</p>
+                            <span class="lang-tag">${repo.language || 'Unknown'}</span>
+                            <span class="stars">⭐ ${repo.stargazers_count || 0}</span>
+                            <br />
+                            <a href="${repo.html_url}" target="_blank" class="link">View on GitHub ↗</a>
+                        </div>
+                    `).join('');
+
+                // Re-trigger fade animations
+                grid.querySelectorAll('.fade-up').forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, 50);
+                });
+
+            } catch (err) {
+                grid.innerHTML = `
+                        <div style="grid-column:1/-1; text-align:center; color:var(--text-muted);">
+                            <p>⚠️ Could not load projects. Please try again later.</p>
+                            <p style="font-size:0.85rem;">${err.message}</p>
+                        </div>
+                    `;
+                console.error('GitHub fetch error:', err);
+            }
+        }
+
+        fetchRepos();
+
+        // ---------- JOB CALCULATOR ----------
+        const projectType = document.getElementById('projectType');
+        const hoursInput = document.getElementById('hours');
+        const rateInput = document.getElementById('hourlyRate');
+        const calcBtn = document.getElementById('calcBtn');
+
+        const displayType = document.getElementById('displayType');
+        const displayHours = document.getElementById('displayHours');
+        const displayRate = document.getElementById('displayRate');
+        const displayBase = document.getElementById('displayBase');
+        const displayTotal = document.getElementById('displayTotal');
+
+        // Base costs per project type
+        const baseCosts = {
+            landing: 1500,
+            webapp: 3500,
+            ecommerce: 5000,
+            platform: 7500
+        };
+
+        // Labels for display
+        const typeLabels = {
+            landing: 'Landing Page',
+            webapp: 'Web App',
+            ecommerce: 'E-Commerce',
+            platform: 'Complex Platform'
+        };
+
+        function updateCalculator() {
+            const type = projectType.value;
+            const hours = parseInt(hoursInput.value) || 0;
+            const rate = parseInt(rateInput.value) || 0;
+            const base = baseCosts[type] || 0;
+
+            // Simple formula: base + (hours * rate * 0.6) — accounts for overhead
+            const laborCost = hours * rate * 0.6;
+            const total = base + laborCost;
+
+            displayType.textContent = typeLabels[type] || type;
+            displayHours.textContent = hours;
+            displayRate.textContent = rate;
+            displayBase.textContent = `$${base.toLocaleString()}`;
+            displayTotal.textContent = `$${Math.round(total).toLocaleString()}`;
+        }
+
+        calcBtn.addEventListener('click', updateCalculator);
+        projectType.addEventListener('change', updateCalculator);
+        hoursInput.addEventListener('input', updateCalculator);
+        rateInput.addEventListener('input', updateCalculator);
+
+        // Initial calculation
+        updateCalculator();
+
+        // ---------- SCROLL ANIMATIONS ----------
+        const fadeElements = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -955,13 +1035,11 @@
         }, { threshold: 0.1 });
 
         fadeElements.forEach(el => {
-            // Set initial state (will be overridden by CSS if not)
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             observer.observe(el);
         });
 
-        // Also trigger on load for elements already in view
         window.addEventListener('load', () => {
             fadeElements.forEach(el => {
                 const rect = el.getBoundingClientRect();
