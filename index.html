@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TrotskyBuilds</title>
+    <title>TrotskyBuilds — Software Engineer and Full Stack Developer</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,11 +13,46 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- OG Meta -->
+    <!-- ========== SOCIAL MEDIA PREVIEW (Open Graph + Twitter Cards) ========== -->
+    <!-- Basic Meta -->
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="Full-stack web experiences that convert. Built by Chidomile Trotsky (TrotskyBuilds)." />
+    
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:title" content="TrotskyBuilds — Chidomile Trotsky" />
     <meta property="og:description" content="Full-stack web experiences that convert. Built by Chidomile Trotsky." />
     <meta property="og:image" content="https://github.com/Froshboi/letsbuildyou/blob/main/preview.png?raw=true" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta property="og:url" content="https://froshboi.github.io/letsbuildyou" /> <!-- CHANGE THIS TO YOUR LIVE URL -->
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card (X.com) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TrotskyBuilds — Chidomile Trotsky" />
+    <meta name="twitter:description" content="Full-stack web experiences that convert. Built by Chidomile Trotsky." />
+    <meta name="twitter:image" content="https://github.com/Froshboi/letsbuildyou/blob/main/preview.png?raw=true" />
+    <!-- ================================================================ -->
+
+    <!-- Dark Mode Button Override (so you don't have to edit style.css) -->
+    <style>
+        [data-theme="dark"] .btn-primary {
+            background-color: #334155 !important;
+            border-color: #334155 !important;
+            color: #f1f5f9 !important;
+        }
+        [data-theme="dark"] .btn-primary:hover {
+            background-color: #475569 !important;
+            border-color: #475569 !important;
+        }
+        [data-theme="dark"] .nav-links .btn-primary {
+            background-color: #334155 !important;
+            border-color: #334155 !important;
+            color: #f1f5f9 !important;
+        }
+        [data-theme="dark"] .nav-links .btn-primary:hover {
+            background-color: #475569 !important;
+            border-color: #475569 !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -30,7 +65,8 @@
                 <li><a href="#work">Work</a></li>
                 <li><a href="#calculator">Calculator</a></li>
                 <li><a href="#process">Process</a></li>
-                <li><a href="#contact" class="btn-primary" style="padding:0.5rem 1.5rem; font-size:0.85rem;">Book a Call</a></li>
+                <!-- 👇 BOOK CALL BUTTON (WHATSAPP) -->
+                <li><a href="https://wa.me/2349018536491?text=Hey%20TrotskyBuilds%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20book%20a%20call!" target="_blank" class="btn-primary" style="padding:0.5rem 1.5rem; font-size:0.85rem;">Book a Call</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -53,7 +89,8 @@
                 pixel-perfect web experiences that actually drive revenue. 
             </p>
             <div class="hero-actions">
-                <a href="#contact" class="btn-primary">Let's Talk ↗</a>
+                <!-- 👇 LET'S TALK BUTTON (WHATSAPP) -->
+                <a href="https://wa.me/2349018536491?text=Hey%20TrotskyBuilds%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20chat%20about%20a%20project!" target="_blank" class="btn-primary">Let's Talk ↗</a>
                 <a href="#work" class="btn-secondary">See My Work</a>
             </div>
         </section>
@@ -80,7 +117,7 @@
             </div>
         </section>
 
-        <!-- ========== PORTFOLIO (Hardcoded Projects) ========== -->
+        <!-- ========== PORTFOLIO ========== -->
         <section id="work" class="container section-padding" style="padding-top:0;">
             <div style="text-align:center; margin-bottom:3rem;">
                 <span class="badge">Portfolio</span>
@@ -186,7 +223,8 @@
                 <p style="color:var(--text-secondary); max-width:500px; margin:0 auto 2rem auto; font-size:1.1rem;">
                     Book a free, no-pressure call. I'll map out your project in 30 minutes.
                 </p>
-                <a href="#" class="btn-primary" style="font-size:1.1rem; padding:0.9rem 3rem;">Book a Free Call ↗</a>
+                <!-- 👇 BOOK FREE CALL BUTTON (WHATSAPP) -->
+                <a href="https://wa.me/2349018536491?text=Hey%20TrotskyBuilds%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20book%20a%20free%20call!" target="_blank" class="btn-primary" style="font-size:1.1rem; padding:0.9rem 3rem;">Book a Free Call ↗</a>
             </div>
         </section>
     </main>
