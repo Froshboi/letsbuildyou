@@ -5,31 +5,31 @@ const projects = [
         name: "Circlet",
         description: "A modern web app built with React and Tailwind. Showcases real-time data and responsive design.",
         language: "JavaScript",
-        stars: 12,
+        stars: 20,000,
         repoUrl: "https://github.com/Froshboi/Circlet",
         liveDemo: "#" // <-- PASTE YOUR LIVE DEMO URL HERE (e.g., https://circlet.vercel.app)
     },
     {
-        name: "letsbuildyou",
-        description: "This very portfolio! Built with pure HTML, CSS, and JS. Features dark/light mode and a project calculator.",
-        language: "HTML",
+        name: "Eventhubs",
+        description: "Easy to use ticket and event management portal designed to give host and attenders seamless experience",
+        language: "Next.js and SQL",
         stars: 3,
-        repoUrl: "https://github.com/Froshboi/letsbuildyou",
-        liveDemo: "#" // <-- PASTE YOUR GITHUB PAGES URL HERE (e.g., https://froshboi.github.io/letsbuildyou)
+        repoUrl: "https://github.com/Froshboi/eventshub",
+        liveDemo: "www.eventshub.name.ng" // <-- PASTE YOUR GITHUB PAGES URL HERE (e.g., https://froshboi.github.io/letsbuildyou)
     },
     {
-        name: "Project Alpha",
-        description: "Full-stack e-commerce platform with Stripe integration and real-time inventory management.",
-        language: "Python",
-        stars: 8,
-        repoUrl: "https://github.com/Froshboi",
-        liveDemo: "#"
+        name: "Havenpay",
+        description: "Full-stack crypto to airtime, data, subcriptions and internet utility making transaction from web 3 to web 2 or even daily life easy.",
+        language: "Full stack build with backend integration",
+        stars: 50,000,
+        repoUrl: "https://github.com/Froshboi/havenpay",
+        liveDemo: "https://www.havenpay.vercel.app/"
     },
     {
-        name: "Project Beta",
-        description: "SaaS dashboard with authentication, analytics charts, and team collaboration features.",
+        name: "Froshboi Charts",
+        description: "Music analytics and chart website designed to rank and value artist performance, streaming and ratings to enable gigs finding easier",
         language: "TypeScript",
-        stars: 5,
+        stars: 15,000,
         repoUrl: "https://github.com/Froshboi",
         liveDemo: "#"
     }
