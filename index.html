@@ -3,649 +3,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TrotskyBuilds — Full-Stack Web Experiences</title>
+    <title>TrotskyBuilds</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
 
-    <meta property="og:title" content="TrotskyBuilds — Sites That Slap" />
-    <meta property="og:description" content="Full-stack web experiences that don't just look good — they work hard." />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- OG Meta -->
+    <meta property="og:title" content="TrotskyBuilds — Chidomile Trotsky" />
+    <meta property="og:description" content="Full-stack web experiences that convert. Built by Chidomile Trotsky." />
     <meta property="og:image" content="https://github.com/Froshboi/letsbuildyou/blob/main/preview.png?raw=true" />
     <meta name="theme-color" content="#0f172a" />
-
-    <style>
-        /* ---------- CSS Variables for Light/Dark Mode ---------- */
-        :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-card: #ffffff;
-            --bg-card-hover: #f1f5f9;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #94a3b8;
-            --border-color: #e2e8f0;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --accent-glow: rgba(59, 130, 246, 0.2);
-            --gradient-start: #3b82f6;
-            --gradient-end: #8b5cf6;
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #1e293b;
-            --bg-card-hover: #334155;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --text-muted: #64748b;
-            --border-color: #334155;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-            --accent: #60a5fa;
-            --accent-hover: #93bbfc;
-            --accent-glow: rgba(96, 165, 250, 0.15);
-            --gradient-start: #60a5fa;
-            --gradient-end: #a78bfa;
-        }
-
-        /* ---------- Reset & Base ---------- */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            transition: background-color 0.25s ease, color 0.25s ease;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* ---------- Reusable Utilities ---------- */
-        .section-padding {
-            padding: 5rem 0;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: var(--accent-glow);
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 1rem;
-            border-radius: 9999px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-        }
-
-        .grid-2 {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-
-        .grid-3 {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        }
-
-        .grid-4 {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--text-primary);
-            color: var(--bg-primary);
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            border: 1px solid var(--text-primary);
-            transition: all 0.2s ease;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-hover);
-            background-color: var(--text-secondary);
-            border-color: var(--text-secondary);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--text-primary);
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            border: 1px solid var(--border-color);
-            transition: all 0.2s ease;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--bg-card-hover);
-            border-color: var(--text-primary);
-            transform: scale(1.02);
-        }
-
-        /* ---------- Theme Toggle ---------- */
-        .theme-toggle {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 9999px;
-            width: 2.5rem;
-            height: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(15deg) scale(1.05);
-            border-color: var(--accent);
-        }
-
-        /* ---------- Navbar ---------- */
-        .navbar {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg-primary);
-            transition: background-color 0.25s ease;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(12px);
-            background-color: rgba(var(--bg-primary-rgb, 255, 255, 255), 0.8);
-        }
-
-        .navbar-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            cursor: pointer;
-        }
-
-        /* ---------- Hero ---------- */
-        .hero {
-            text-align: center;
-            padding: 4rem 0 3rem 0;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1.1;
-            margin: 1.5rem 0 1.5rem 0;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2.5rem auto;
-        }
-
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* ---------- Stats ---------- */
-        .stats-grid {
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 3rem 0;
-            margin: 2rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        /* ---------- Cards ---------- */
-        .service-card,
-        .repo-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            transition: all 0.25s ease;
-            box-shadow: var(--shadow);
-            height: 100%;
-        }
-
-        .service-card:hover,
-        .repo-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent);
-            background-color: var(--bg-card-hover);
-        }
-
-        .service-card .icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-        .service-card h3 {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 0.4rem;
-        }
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .repo-card .lang-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent);
-            background: var(--accent-glow);
-            padding: 0.15rem 0.75rem;
-            border-radius: 9999px;
-            margin: 0.5rem 0;
-        }
-
-        .repo-card .stars {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .repo-card h4 {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-top: 0.25rem;
-        }
-        .repo-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin: 0.25rem 0 0.75rem 0;
-        }
-
-        .repo-card .link {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-        .repo-card .link:hover {
-            text-decoration: underline;
-        }
-
-        /* ---------- Job Calculator ---------- */
-        .calculator-section {
-            background: var(--bg-secondary);
-            border-radius: 2rem;
-            padding: 3rem 2rem;
-            border: 1px solid var(--border-color);
-            margin: 2rem 0;
-        }
-
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .calc-form label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            color: var(--text-primary);
-        }
-
-        .calc-form input,
-        .calc-form select {
-            width: 100%;
-            padding: 0.7rem 1rem;
-            border-radius: 0.75rem;
-            border: 1px solid var(--border-color);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-size: 1rem;
-            margin-bottom: 1.2rem;
-            transition: border 0.2s ease;
-        }
-
-        .calc-form input:focus,
-        .calc-form select:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-glow);
-        }
-
-        .calc-result {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-        }
-
-        .calc-result .price-breakdown {
-            margin: 1.5rem 0;
-        }
-
-        .calc-result .price-breakdown div {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .calc-result .total {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-top: 1rem;
-        }
-
-        .calc-result .total-label {
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        /* ---------- Process ---------- */
-        .process-step {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            transition: all 0.2s ease;
-        }
-        .process-step:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-hover);
-        }
-        .process-step .step-num {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 9999px;
-            background: var(--accent-glow);
-            color: var(--accent);
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        .process-step h3 {
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        .process-step p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* ---------- CTA / Footer ---------- */
-        .cta-section {
-            background: var(--bg-secondary);
-            border-radius: 2rem;
-            padding: 4rem 2rem;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            margin: 2rem 0;
-        }
-
-        .footer {
-            border-top: 1px solid var(--border-color);
-            padding: 2rem 0;
-            margin-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* ---------- Responsive ---------- */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-            .nav-links.open {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg-primary);
-                padding: 2rem;
-                border-bottom: 1px solid var(--border-color);
-                gap: 1.5rem;
-                align-items: center;
-                box-shadow: var(--shadow);
-            }
-
-            .stats-grid .grid-4 {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .calculator-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .cta-section {
-                padding: 2rem 1rem;
-            }
-            .footer {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        /* ---------- Animations ---------- */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .delay-1 {
-            animation-delay: 0.1s;
-        }
-        .delay-2 {
-            animation-delay: 0.2s;
-        }
-        .delay-3 {
-            animation-delay: 0.3s;
-        }
-        .delay-4 {
-            animation-delay: 0.4s;
-        }
-
-        .loading-spinner {
-            text-align: center;
-            padding: 3rem 0;
-            color: var(--text-muted);
-        }
-
-        .loading-spinner .spinner {
-            display: inline-block;
-            width: 2rem;
-            height: 2rem;
-            border: 3px solid var(--border-color);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 </head>
 <body>
 
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container navbar-inner">
-            <a href="#" class="logo" aria-label="TrotskyBuilds Home">TrotskyBuilds</a>
+            <a href="#" class="logo">TrotskyBuilds</a>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#services">Services</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#calculator">Calculator</a></li>
                 <li><a href="#process">Process</a></li>
@@ -653,31 +34,27 @@
             </ul>
 
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
-                    🌙
-                </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
-                    ☰
-                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">🌙</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
             </div>
         </div>
     </nav>
 
     <main>
         <!-- ========== HERO ========== -->
-        <section class="container hero section-padding" style="padding-top:2rem;">
-            <span class="badge">🚀 Now Accepting New Clients</span>
+        <section class="container hero section-padding">
+            <span class="badge">👋 Available for Freelance / Full-Time</span>
             <h1>
-                We Build Sites<br />
-                That <span>Slap. Convert. Print.</span>
+                I'm <span>Chidomile Trotsky</span>.<br />
+                I build sites that <span>convert</span>.
             </h1>
             <p>
-                Full-stack web experiences that don't just look good — they work hard.
-                From custom development to pixel-perfect design, we deliver results.
+                Better known as <strong>TrotskyBuilds</strong>. Full-stack developer specializing in React, Node, and 
+                pixel-perfect web experiences that actually drive revenue. 
             </p>
             <div class="hero-actions">
-                <a href="#contact" class="btn-primary">Book a Free Call ↗</a>
-                <a href="#work" class="btn-secondary">See Our Work</a>
+                <a href="#contact" class="btn-primary">Let's Talk ↗</a>
+                <a href="#work" class="btn-secondary">See My Work</a>
             </div>
         </section>
 
@@ -703,62 +80,16 @@
             </div>
         </section>
 
-        <!-- ========== SERVICES ========== -->
-        <section id="services" class="container section-padding">
-            <div style="text-align:center; margin-bottom:3rem;">
-                <span class="badge">What We Do</span>
-                <h2 class="section-title">Services That Deliver</h2>
-                <p class="section-subtitle" style="margin:0 auto;">End-to-end solutions tailored to your business needs.</p>
-            </div>
-
-            <div class="grid-3">
-                <div class="service-card fade-up">
-                    <span class="icon">🎨</span>
-                    <h3>UI/UX Design</h3>
-                    <p>Interfaces so good they feel illegal. Pixel-perfect, user-first, and conversion-optimized.</p>
-                </div>
-                <div class="service-card fade-up delay-1">
-                    <span class="icon">⚙️</span>
-                    <h3>Web Development</h3>
-                    <p>Full-stack apps built with speed, scale, and security in mind. React, Node, Python, and more.</p>
-                </div>
-                <div class="service-card fade-up delay-2">
-                    <span class="icon">🧩</span>
-                    <h3>No-Code & Automation</h3>
-                    <p>Bubble, Webflow, and Zapier — we ship MVPs faster than you can say "funding".</p>
-                </div>
-                <div class="service-card fade-up delay-3">
-                    <span class="icon">📊</span>
-                    <h3>Data & Analytics</h3>
-                    <p>Dashboards, reporting, and data pipelines that turn raw numbers into actionable insights.</p>
-                </div>
-                <div class="service-card fade-up delay-1">
-                    <span class="icon">🏷️</span>
-                    <h3>Brand Identity</h3>
-                    <p>From logos to style guides. We build brands that stand out and stick.</p>
-                </div>
-                <div class="service-card fade-up delay-2">
-                    <span class="icon">📈</span>
-                    <h3>Consulting</h3>
-                    <p>Strategic technical advice, architecture reviews, and fractional CTO services.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== PORTFOLIO (GitHub Repos) ========== -->
+        <!-- ========== PORTFOLIO (Hardcoded Projects) ========== -->
         <section id="work" class="container section-padding" style="padding-top:0;">
             <div style="text-align:center; margin-bottom:3rem;">
                 <span class="badge">Portfolio</span>
-                <h2 class="section-title">Projects I've Built</h2>
-                <p class="section-subtitle" style="margin:0 auto;">Live projects pulled straight from my GitHub.</p>
+                <h2 class="section-title">Things I've Built</h2>
+                <p class="section-subtitle" style="margin:0 auto;">Live projects. Real code. Deployed and working.</p>
             </div>
 
             <div id="repoGrid" class="grid-3">
-                <!-- Loading state -->
-                <div class="loading-spinner" style="grid-column:1/-1;">
-                    <div class="spinner"></div>
-                    <p style="margin-top:1rem;">Loading projects...</p>
-                </div>
+                <!-- Projects get injected here by script.js -->
             </div>
         </section>
 
@@ -766,7 +97,7 @@
         <section id="calculator" class="container section-padding" style="padding-top:0;">
             <div style="text-align:center; margin-bottom:3rem;">
                 <span class="badge">💰 Estimate</span>
-                <h2 class="section-title">Job Calculator</h2>
+                <h2 class="section-title">Project Cost Calculator</h2>
                 <p class="section-subtitle" style="margin:0 auto;">Get a ballpark estimate for your next project.</p>
             </div>
 
@@ -806,18 +137,18 @@
                         <div class="total-label">Total Project Cost</div>
                         <div class="total" id="displayTotal">$6,800</div>
                         <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.5rem;">
-                            * This is a rough estimate. Final pricing depends on scope and requirements.
+                            * Rough estimate. Final pricing depends on scope and requirements.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== PROCESS ========== -->
+        <!-- ========== MY PROCESS ========== -->
         <section id="process" class="container section-padding" style="padding-top:0;">
             <div style="text-align:center; margin-bottom:3rem;">
-                <span class="badge">How We Work</span>
-                <h2 class="section-title">Our 4-Step Process</h2>
+                <span class="badge">How I Work</span>
+                <h2 class="section-title">My 4-Step Process</h2>
                 <p class="section-subtitle" style="margin:0 auto;">From concept to launch in record time.</p>
             </div>
 
@@ -825,7 +156,7 @@
                 <div class="process-step fade-up">
                     <div class="step-num">01</div>
                     <h3>Audit</h3>
-                    <p>We dive deep into your goals, competitors, and user needs.</p>
+                    <p>I dive deep into your goals, competitors, and user needs.</p>
                 </div>
                 <div class="process-step fade-up delay-1">
                     <div class="step-num">02</div>
@@ -845,15 +176,15 @@
             </div>
         </section>
 
-        <!-- ========== CTA / CONTACT ========== -->
+        <!-- ========== CTA ========== -->
         <section id="contact" class="container">
             <div class="cta-section fade-up">
                 <span class="badge" style="background:var(--accent); color:white; border:none;">📞 Let's Talk</span>
                 <h2 style="font-size:2.2rem; font-weight:800; letter-spacing:-0.02em; margin:0.5rem 0;">
-                    Ready to Build Something <br class="hide-mobile" />That <span style="background:linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Actually Slaps</span>?
+                    Ready to build something <br class="hide-mobile" />that <span style="background:linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">actually converts</span>?
                 </h2>
                 <p style="color:var(--text-secondary); max-width:500px; margin:0 auto 2rem auto; font-size:1.1rem;">
-                    Book a free, no-pressure call. We'll map out your project in 30 minutes.
+                    Book a free, no-pressure call. I'll map out your project in 30 minutes.
                 </p>
                 <a href="#" class="btn-primary" style="font-size:1.1rem; padding:0.9rem 3rem;">Book a Free Call ↗</a>
             </div>
@@ -862,7 +193,7 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="container footer">
-        <span>© 2026 TrotskyBuilds. Built with ☕ and 🔥.</span>
+        <span>© 2026 TrotskyBuilds. Built with Caffine☕ and Sleepless Nights🔥.</span>
         <span>
             <a href="https://github.com/Froshboi" target="_blank" style="margin:0 0.5rem; color:var(--text-muted);">GitHub</a>
             <a href="#" style="margin:0 0.5rem; color:var(--text-muted);">Twitter</a>
@@ -870,185 +201,7 @@
         </span>
     </footer>
 
-    <script>
-        // ---------- THEME TOGGLE ----------
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-
-        const getCurrentTheme = () => {
-            const saved = localStorage.getItem('theme');
-            if (saved) return saved;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-
-        let currentTheme = getCurrentTheme();
-        html.setAttribute('data-theme', currentTheme);
-        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
-
-        const toggleTheme = () => {
-            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-        };
-
-        themeToggle.addEventListener('click', toggleTheme);
-
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                const newTheme = e.matches ? 'dark' : 'light';
-                html.setAttribute('data-theme', newTheme);
-                themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            }
-        });
-
-        // ---------- MOBILE MENU ----------
-        const mobileBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileBtn.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
-            mobileBtn.setAttribute('aria-expanded', isOpen);
-            mobileBtn.textContent = isOpen ? '✕' : '☰';
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                mobileBtn.setAttribute('aria-expanded', 'false');
-                mobileBtn.textContent = '☰';
-            });
-        });
-
-        // ---------- FETCH GITHUB REPOS ----------
-        async function fetchRepos() {
-            const grid = document.getElementById('repoGrid');
-            try {
-                const res = await fetch('https://api.github.com/users/Froshboi/repos?sort=updated&per_page=20');
-                if (!res.ok) throw new Error('Failed to fetch repos');
-                const repos = await res.json();
-
-                // Filter out forks (optional — we keep Circlet because it's cool)
-                const ownRepos = repos.filter(r => !r.fork || r.name === 'Circlet');
-
-                if (ownRepos.length === 0) {
-                    grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--text-muted);">No public repositories found.</p>`;
-                    return;
-                }
-
-                grid.innerHTML = ownRepos.map((repo, i) => `
-                        <div class="repo-card fade-up delay-${i % 4}">
-                            <h4>${repo.name}</h4>
-                            <p>${repo.description || 'No description provided.'}</p>
-                            <span class="lang-tag">${repo.language || 'Unknown'}</span>
-                            <span class="stars">⭐ ${repo.stargazers_count || 0}</span>
-                            <br />
-                            <a href="${repo.html_url}" target="_blank" class="link">View on GitHub ↗</a>
-                        </div>
-                    `).join('');
-
-                // Re-trigger fade animations
-                grid.querySelectorAll('.fade-up').forEach(el => {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(30px)';
-                    setTimeout(() => {
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                    }, 50);
-                });
-
-            } catch (err) {
-                grid.innerHTML = `
-                        <div style="grid-column:1/-1; text-align:center; color:var(--text-muted);">
-                            <p>⚠️ Could not load projects. Please try again later.</p>
-                            <p style="font-size:0.85rem;">${err.message}</p>
-                        </div>
-                    `;
-                console.error('GitHub fetch error:', err);
-            }
-        }
-
-        fetchRepos();
-
-        // ---------- JOB CALCULATOR ----------
-        const projectType = document.getElementById('projectType');
-        const hoursInput = document.getElementById('hours');
-        const rateInput = document.getElementById('hourlyRate');
-        const calcBtn = document.getElementById('calcBtn');
-
-        const displayType = document.getElementById('displayType');
-        const displayHours = document.getElementById('displayHours');
-        const displayRate = document.getElementById('displayRate');
-        const displayBase = document.getElementById('displayBase');
-        const displayTotal = document.getElementById('displayTotal');
-
-        // Base costs per project type
-        const baseCosts = {
-            landing: 1500,
-            webapp: 3500,
-            ecommerce: 5000,
-            platform: 7500
-        };
-
-        // Labels for display
-        const typeLabels = {
-            landing: 'Landing Page',
-            webapp: 'Web App',
-            ecommerce: 'E-Commerce',
-            platform: 'Complex Platform'
-        };
-
-        function updateCalculator() {
-            const type = projectType.value;
-            const hours = parseInt(hoursInput.value) || 0;
-            const rate = parseInt(rateInput.value) || 0;
-            const base = baseCosts[type] || 0;
-
-            // Simple formula: base + (hours * rate * 0.6) — accounts for overhead
-            const laborCost = hours * rate * 0.6;
-            const total = base + laborCost;
-
-            displayType.textContent = typeLabels[type] || type;
-            displayHours.textContent = hours;
-            displayRate.textContent = rate;
-            displayBase.textContent = `$${base.toLocaleString()}`;
-            displayTotal.textContent = `$${Math.round(total).toLocaleString()}`;
-        }
-
-        calcBtn.addEventListener('click', updateCalculator);
-        projectType.addEventListener('change', updateCalculator);
-        hoursInput.addEventListener('input', updateCalculator);
-        rateInput.addEventListener('input', updateCalculator);
-
-        // Initial calculation
-        updateCalculator();
-
-        // ---------- SCROLL ANIMATIONS ----------
-        const fadeElements = document.querySelectorAll('.fade-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        fadeElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            observer.observe(el);
-        });
-
-        window.addEventListener('load', () => {
-            fadeElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
