@@ -1,11 +1,12 @@
 // ---------- PROJECTS (HARDCODED) ----------
 // 👇 EDIT THIS ARRAY: Replace the liveDemo links with your actual deployed URLs!
+// ⚠️ IMPORTANT: Numbers MUST NOT have commas (e.g., use 20000, not 20,000)
 const projects = [
     {
         name: "Circlet",
         description: "A modern web app built with React and Tailwind. Showcases real-time data and responsive design.",
         language: "JavaScript",
-        stars: 20,000,
+        stars: 20000, // <-- Fixed: removed comma
         repoUrl: "https://github.com/Froshboi/Circlet",
         liveDemo: "#" // <-- PASTE YOUR LIVE DEMO URL HERE (e.g., https://circlet.vercel.app)
     },
@@ -15,13 +16,13 @@ const projects = [
         language: "Next.js and SQL",
         stars: 3,
         repoUrl: "https://github.com/Froshboi/eventshub",
-        liveDemo: "www.eventshub.name.ng" // <-- PASTE YOUR GITHUB PAGES URL HERE (e.g., https://froshboi.github.io/letsbuildyou)
+        liveDemo: "www.eventshub.name.ng" 
     },
     {
         name: "Havenpay",
         description: "Full-stack crypto to airtime, data, subcriptions and internet utility making transaction from web 3 to web 2 or even daily life easy.",
         language: "Full stack build with backend integration",
-        stars: 50,000,
+        stars: 50000, // <-- Fixed: removed comma
         repoUrl: "https://github.com/Froshboi/havenpay",
         liveDemo: "https://www.havenpay.vercel.app/"
     },
@@ -29,7 +30,7 @@ const projects = [
         name: "Froshboi Charts",
         description: "Music analytics and chart website designed to rank and value artist performance, streaming and ratings to enable gigs finding easier",
         language: "TypeScript",
-        stars: 15,000,
+        stars: 15000, // <-- Fixed: removed comma
         repoUrl: "https://github.com/Froshboi",
         liveDemo: "#"
     }
